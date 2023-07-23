@@ -21,7 +21,7 @@ public:
 	void setSessionSet(const Set& set);
 
 
-	Session& operator=(const Session& other);
+	void operator=(const Session& other);
 
 	std::string toString() const;
 

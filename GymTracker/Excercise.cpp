@@ -38,12 +38,10 @@ void Excercise::setRepetitions(const int repetitions)
 
 
 
-Excercise& Excercise::operator=(const Excercise& other)
+void Excercise::operator=(const Excercise& other)
 {
 	this->setName(other.getName());
 	this->setRepetitions(other.getRepetitions());
-
-	return *this;
 }
 
 std::string Excercise::toString() const

@@ -17,7 +17,7 @@ public:
 	void setName(const std::string name);
 	void setRepetitions(const int repetitions);
 	
-	Excercise& operator=(const Excercise& other);
+	void operator=(const Excercise& other);
 
 	std::string toString() const;
 

@@ -4,7 +4,9 @@
 
 int main()
 {
+	Session test = userInput::getUserSession();
 
+	std::cout << jsonHandler::createSessionJson(test);
 
 	return 0;
 }

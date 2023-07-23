@@ -31,7 +31,9 @@ std::string Session::getDate() const
 
 Set Session::getSet() const
 {
-	return _set;
+	Set tempSet;
+	tempSet = _set;
+	return tempSet;
 }
 
 void Session::setName(const std::string& name)
@@ -49,13 +51,11 @@ void Session::setSessionSet(const Set& set)
 	_set = set;
 }
 
-Session& Session::operator=(const Session& other)
+void Session::operator=(const Session& other)
 {
 	this->setName(other.getName());
 	this->setDate(other.getDate());
 	this->setSessionSet(other.getSet());
-
-	return *this;
 }
 
 std::string Session::toString() const
