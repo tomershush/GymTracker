@@ -5,9 +5,6 @@
 int main()
 {
 
-	Session testSes = userInput::getUserSession();
-
-	std::cout << testSes.toString();
 
 	return 0;
 }
