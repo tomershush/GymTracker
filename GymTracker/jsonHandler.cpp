@@ -1,9 +1,9 @@
 #include "jsonHandler.h"
 
-std::string jsonHandler::createExcerciseJson(const Excercise& ex)
+std::string jsonHandler::createExcJson(const Excercise& exc)
 {
 	
-	return std::vformat(EX_JSON_TEMPLATE, std::make_format_args(ex.getName(), ex.getReps()));
+	return std::vformat(EX_JSON_TEMPLATE, std::make_format_args(exc.getName(), exc.getReps()));
 }
 
 std::string jsonHandler::createSetJson(const Set& set)
@@ -12,15 +12,15 @@ std::string jsonHandler::createSetJson(const Set& set)
 	Excercise* tempExes = set.getExces();
 
 	for (int i = 0; i < set.getNumOfExces() - 1; i++)
-		exesJson += jsonHandler::createExcerciseJson(tempExes[i]) + ",";
-	exesJson += createExcerciseJson(tempExes[set.getNumOfExces() - 1]);
+		exesJson += jsonHandler::createExcJson(tempExes[i]) + ",";
+	exesJson += createExcJson(tempExes[set.getNumOfExces() - 1]);
 
 
 
 	return std::vformat(SET_JSON_TEMPLATE, std::make_format_args(set.getReps(), set.getNumOfExces(), exesJson));
 }
 
-std::string jsonHandler::createSessionJson(const Session& sess)
+std::string jsonHandler::createSessJson(const Session& sess)
 {
 
 	return std::vformat(SESS_JSON_TEMPLATE, std::make_format_args(sess.getName(), sess.getDate(), createSetJson(sess.getSet())));
@@ -94,12 +94,12 @@ int jsonHandler::bracketCounter(const std::string bracketedStr, const char brack
 	return closingBracketIndex;
 }
 
-Excercise jsonHandler::getExcerciseFromJson(const std::string& exJson)
+Excercise jsonHandler::getExcFromJson(const std::string& excJson)
 {
 	Excercise jsonExcercise;
-	int repetitions = std::stoi(getFieldFromJson(exJson, "repetitions"));
+	int repetitions = std::stoi(getFieldFromJson(excJson, "repetitions"));
 
-	jsonExcercise.setName(getFieldFromJson(exJson, "name"));
+	jsonExcercise.setName(getFieldFromJson(excJson, "name"));
 	jsonExcercise.setReps(repetitions);
 
 	return jsonExcercise;
@@ -127,7 +127,7 @@ Set jsonHandler::getSetFromJson(const std::string& setJson)
 	for (int i = 0; i < numOfExes; i++)	// Looping over all the exes.
 	{
 		tempExJson = exesJson.substr(0, exesJson.find("},"));	// Finding the end of the current object.
-		tempEx = getExcerciseFromJson(tempExJson);	// Creating and adding the ex.
+		tempEx = getExcFromJson(tempExJson);	// Creating and adding the ex.
 		set.addExc(tempEx);
 
 		exesJson = exesJson.substr(exesJson.find("},") + 2);	// Removing the object's representation from the JSON string.
@@ -138,7 +138,7 @@ Set jsonHandler::getSetFromJson(const std::string& setJson)
 	return set;
 }
 
-Session jsonHandler::getSessionFromJson(const std::string& sessJson)
+Session jsonHandler::getSessFromJson(const std::string& sessJson)
 {
 	Session sess;
 	Set tempSet;

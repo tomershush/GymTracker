@@ -10,15 +10,15 @@
 class jsonHandler
 {
 public:
-	static std::string createExcerciseJson(const Excercise& ex);
+	static std::string createExcJson(const Excercise& exc);
 	static std::string createSetJson(const Set& set);
-	static std::string createSessionJson(const Session& sess);
+	static std::string createSessJson(const Session& sess);
 
 	static std::string getFieldFromJson(const std::string json, const std::string fieldName);
 	static int bracketCounter(const std::string bracketedStr, const char bracketType);
 
-	static Excercise getExcerciseFromJson(const std::string& exJson);
+	static Excercise getExcFromJson(const std::string& excJson);
 	static Set getSetFromJson(const std::string& setJson);
-	static Session getSessionFromJson(const std::string& sessJson);
+	static Session getSessFromJson(const std::string& sessJson);
 };
 

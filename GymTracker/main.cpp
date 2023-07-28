@@ -14,7 +14,7 @@
 int main()
 {
 	std::string testJSON = "{name:\"testSession\",date:\"1/1/2000\",set:{repetitions:5,numOfExcercises:2,excercises:[{{name:\"ex1\",repetitions:5}},{{name:\"ex2\",repetitions:10}}]}};";
-	Session testSess = jsonHandler::getSessionFromJson(testJSON);
+	Session testSess = jsonHandler::getSessFromJson(testJSON);
 
 	std::cout << testSess.toString();
 
