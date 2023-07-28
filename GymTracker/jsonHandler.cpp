@@ -3,7 +3,7 @@
 std::string jsonHandler::createExcerciseJson(const Excercise& ex)
 {
 	
-	return std::vformat(EX_JSON_TEMPLATE, std::make_format_args(ex.getName(), ex.getRepetitions()));
+	return std::vformat(EX_JSON_TEMPLATE, std::make_format_args(ex.getName(), ex.getReps()));
 }
 
 std::string jsonHandler::createSetJson(const Set& set)
@@ -100,7 +100,7 @@ Excercise jsonHandler::getExcerciseFromJson(const std::string& exJson)
 	int repetitions = std::stoi(getFieldFromJson(exJson, "repetitions"));
 
 	jsonExcercise.setName(getFieldFromJson(exJson, "name"));
-	jsonExcercise.setRepetitions(repetitions);
+	jsonExcercise.setReps(repetitions);
 
 	return jsonExcercise;
 }

@@ -4,18 +4,18 @@ class Excercise
 {
 private:
 	std::string _name;
-	int _repetitions;
+	int _reps;
 
 public:
 	Excercise();
-	Excercise(const std::string& name, int repetitions);
+	Excercise(const std::string& name, int reps);
 	~Excercise();
 
 	std::string getName() const;
-	int getRepetitions() const;
+	int getReps() const;
 
 	void setName(const std::string name);
-	void setRepetitions(const int repetitions);
+	void setReps(const int reps);
 	
 	void operator=(const Excercise& other);
 

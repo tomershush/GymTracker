@@ -67,7 +67,7 @@ Excercise userInput::getUserExcercise()
     userExcercise.setName(tempName);
 
     std::cout << "Enter number of repetitions for excercise: ";
-    userExcercise.setRepetitions(getInt());
+    userExcercise.setReps(getInt());
 
     return userExcercise;
 }

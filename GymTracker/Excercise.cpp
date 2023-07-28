@@ -3,13 +3,13 @@
 Excercise::Excercise()
 {
 	_name = "";
-	_repetitions = 0;
+	_reps = 0;
 }
 
-Excercise::Excercise(const std::string& name, int repetitions)
+Excercise::Excercise(const std::string& name, int reps)
 {
 	_name = name;
-	_repetitions = repetitions;
+	_reps = reps;
 }
 
 Excercise::~Excercise()
@@ -21,9 +21,9 @@ std::string Excercise::getName() const
 	return _name;
 }
 
-int Excercise::getRepetitions() const
+int Excercise::getReps() const
 {
-	return _repetitions;
+	return _reps;
 }
 
 void Excercise::setName(const std::string name)
@@ -31,9 +31,9 @@ void Excercise::setName(const std::string name)
   _name = name;
 }
 
-void Excercise::setRepetitions(const int repetitions)
+void Excercise::setReps(const int reps)
 {
-	_repetitions = repetitions;
+	_reps = reps;
 }
 
 
@@ -41,10 +41,10 @@ void Excercise::setRepetitions(const int repetitions)
 void Excercise::operator=(const Excercise& other)
 {
 	this->setName(other.getName());
-	this->setRepetitions(other.getRepetitions());
+	this->setReps(other.getReps());
 }
 
 std::string Excercise::toString() const
 {
-	return "Excercise name: " + _name + "\n" + "Excercise repetitions: " + std::to_string(_repetitions) + '\n';
+	return "Excercise name: " + _name + "\n" + "Excercise repetitions: " + std::to_string(_reps) + '\n';
 }
