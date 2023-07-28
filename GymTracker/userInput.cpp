@@ -74,7 +74,7 @@ Excercise userInput::getUserExcercise()
 
 void userInput::addToSet(Set* set)
 {
-    set->addExcercise(getUserExcercise());
+    set->addExc(getUserExcercise());
 }
 
 
@@ -85,7 +85,7 @@ Set userInput::getUserSet()
     std::string choice = "";
 
     std::cout << "Enter number of repetitions for set: ";
-    userSet.setRepetitions(getInt());
+    userSet.setReps(getInt());
 
     std::cout << "Would you like to add excercises? ['y' - Yes, anything else - No]: ";
     std::cin >> choice;

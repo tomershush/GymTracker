@@ -3,9 +3,9 @@
 class Set
 {
 private:
-	Excercise* _excercises;
-	int _repetitions;
-	int _excerciseNum;
+	Excercise* _exces;
+	int _reps;
+	int _numOfExces;
 
 public:
 
@@ -15,15 +15,15 @@ public:
 
 	void operator=(const Set& other);
 
-	Excercise* getExcercises() const;
-	int getRepetitions() const;
-	int getExcerciseNum() const;
+	Excercise* getExces() const;
+	int getReps() const;
+	int getNumOfExces() const;
 
-	void setExcercises(Excercise* excercises, int len);
-	void setRepetitions(const int repetitions);
+	void setExces(Excercise* exces, int len);
+	void setReps(const int reps);
 
 
-	void addExcercise(const Excercise excercise);
+	void addExc(const Excercise exc);
 
 	std::string toString() const;
 };
