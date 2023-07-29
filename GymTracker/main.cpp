@@ -1,7 +1,7 @@
 #include "session.h"
 #include "userInput.h"
 #include "jsonHandler.h"
-
+#include "fileHandler.h"
 /*
 * TODO:
 * 1) Add safer user input (getline).
@@ -11,12 +11,18 @@
 * 5) Add file handling.
 */
 
+/*
+* Naming:
+* exc - Excercies
+* exces - Excercises
+* sess - Session
+*/
 int main()
 {
-	std::string testJSON = "{name:\"testSession\",date:\"1/1/2000\",set:{repetitions:5,numOfExcercises:2,excercises:[{{name:\"ex1\",repetitions:5}},{{name:\"ex2\",repetitions:10}}]}};";
-	Session testSess = jsonHandler::getSessFromJson(testJSON);
+	std::string testJSON = "{name:\"testSession\",date:\"1/1/2000\",set:{repetitions:5,numOfExcercises:2,excercises:[{name:\"ex1\",repetitions:5},{name:\"ex2\",repetitions:10}]}}";
 
-	std::cout << testSess.toString();
+
+	fileHandler::writeSessToLog("Tomer", testJSON);
 
 	return 0;
 }
